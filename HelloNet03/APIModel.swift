@@ -14,6 +14,12 @@ class APIModel {
     static var share = APIModel()
     private var apiURL = "https://randomuser.me/api/"
     private init(){}
+    
+    
+    func queryRandomUserAlamofire(completion:@escaping(_ Data:Any?,_ respError: Error?)->())->(){
+        
+    }
+    
 
 }
 
