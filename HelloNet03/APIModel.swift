@@ -12,14 +12,22 @@ import Alamofire
 
 class APIModel {
     static var share = APIModel()
-    private var apiURL = "https://randomuser.me/api/"
+    private var apiURL = "https://randomuser.me/"
     private init(){}
-    
+   
     
     func queryRandomUserAlamofire(completion:@escaping(_ Data:Any?,_ respError: Error?)->())->(){
-        
+        let url = apiURL + "api/"
+        let parameters:Parameters? = nil
+        DispatchQueue.global().async {
+            Alamofire.request(url,
+                              method: .get,
+                              parameters: parameters,
+                              encoding: URLEncoding.default,
+                              headers: nil)
+          
+        }
     }
-    
 
 }
 
