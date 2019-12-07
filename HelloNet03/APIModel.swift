@@ -24,7 +24,16 @@ class APIModel {
                               method: .get,
                               parameters: parameters,
                               encoding: URLEncoding.default,
-                              headers: nil)
+                              headers: nil).responseJSON { (response) in
+                                DispatchQueue.main.async {
+                                    switch response.result{
+                                    case .success(_):
+                                        return completion(response.data,nil)
+                                    case .failure(let error):
+                                        return completion(nil,error)
+                                    }
+                                }
+            }
           
         }
     }

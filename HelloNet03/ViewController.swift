@@ -13,7 +13,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        APIModel.share.queryRandomUserAlamofire { (data, error) in
+            if let theData = data as? Data{
+                do {
+                    let json = try JSON(data: theData)
+                    print(json)
+                } catch  {
+                    print(error.localizedDescription)
+                }
+                
+            }
+        }
     }
 
 
