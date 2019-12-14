@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var headerImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        headerImage.clipsToBounds = true
+        headerImage.layer.cornerRadius = headerImage.frame.width / 2
         updateUser()
     }
     
